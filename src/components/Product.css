@@ -1,0 +1,28 @@
+.product {
+    background-color: aquamarine;
+    border: 2px solid aqua;
+    display: flex;
+}
+
+.product_id, .product_info {
+    display: flex;
+    height: 3rem;
+    background-color: white;
+    border: 1px solid antiquewhite;
+    border-radius: 10px;
+}
+
+.product_id {
+    width: 2rem;
+    font-size: 1.5rem;
+}
+
+.product_info {
+    align-items: flex-end;
+}
+
+.product_name, .product_location {
+    display: block;
+    width: 100%;
+}
+

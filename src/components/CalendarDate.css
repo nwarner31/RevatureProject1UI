@@ -1,0 +1,19 @@
+.calendar_date {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.cd_year {
+    font-size: .75rem;
+}
+
+.cd_month {
+    font-stretch: ultra-expanded;
+    font-size: .75rem;
+}
+
+.cd_day {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
