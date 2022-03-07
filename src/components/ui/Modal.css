@@ -1,0 +1,27 @@
+.modal {
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.hidden {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
+.modal_window {
+    position: absolute;
+    top: 100px;
+    left: 200px;
+
+    width: 150px;
+    z-index: 5;
+}

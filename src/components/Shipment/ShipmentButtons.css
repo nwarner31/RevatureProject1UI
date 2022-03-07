@@ -1,0 +1,17 @@
+.hidden {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
+.sb_main_button {
+    background-color: #f4511c;
+    border: 2px solid #b91400;
+}
+
+.sb_sub_button {
+    background-color: #ff844b;
+    border: 1px solid #f4511c;
+}

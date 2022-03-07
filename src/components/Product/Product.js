@@ -1,5 +1,5 @@
 import './Product.css';
-import Card from './ui/Card';
+import Card from '../ui/Card';
 
 function Product(props) {
 
@@ -13,7 +13,7 @@ function Product(props) {
                   {props.name}
               </div>
               <div className="product_location">
-                  Location: {props.location}
+                  {props.department}
               </div>
           </div>
           

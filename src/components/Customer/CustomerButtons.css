@@ -1,0 +1,17 @@
+.cb_main_button {
+    background-color: #ffee58;
+    border: 2px solid #c9bc1f;
+}
+
+.cb_sub_button {
+    background-color: #ffff8b;
+    border: 1px solid #ffee58;
+}
+
+.hidden {
+    display: none;
+}
+
+.show {
+    display: block;
+}

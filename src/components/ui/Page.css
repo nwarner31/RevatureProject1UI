@@ -1,5 +1,7 @@
 .page{
     display: flex;
+    flex-direction: row;
+    align-items: flex-start;
     text-align: center;
     width: 65%;
     margin: auto;
@@ -7,14 +9,15 @@
     border: 4px solid gray;
 }
 
-.prod_button {
 
-}
 
 .menu {
     width: 30%;
 }
 
 .display {
-    width: 65%;
+    width: 60%;
+    align-self: flex-end;
+    background-color: white;
+    border: 3px solid antiquewhite;
 }

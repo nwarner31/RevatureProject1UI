@@ -5,7 +5,7 @@ function MenuButton(props) {
     const classes = "menu_button " + props.className;
     return (
         <div onClick={props.click}>
-            <Card className={classes}>Menu</Card>
+            <Card className={classes}>{props.title}</Card>
         </div>
         
     )
