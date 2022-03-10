@@ -5,7 +5,8 @@ import DataContext from '../../../store/data_context';
 
 import {useState, useContext} from 'react';
 
-function PostProductModal() {
+function PutProductModal() {
+    const [id, updateId] = useState(1);
     const [upc, updateUpc] = useState('');
     const [name, updateName] = useState('');
     const [aisle, updateAisle] = useState(1);
@@ -13,10 +14,14 @@ function PostProductModal() {
     const [section, updateSection] = useState(1);
     const [shelf, updateShelf] = useState(1);
     const [department, updateDepartment] = useState('');
-    
+
     const {closeModal} = useContext(ModalContext);
     const {newData, baseUrl} = useContext(DataContext);
 
+    function idChanged(event) {
+        updateId(event.target.value);
+    }
+    
     function upcChanged(event) {
         updateUpc(event.target.value);
     }
@@ -44,18 +49,33 @@ function PostProductModal() {
     function departmentChanged(event) {
         updateDepartment(event.target.value);
     }
-    
+
+    function getProduct() {
+        fetch(baseUrl+'product/id/'+id).then((response) => {
+            return response.json();
+        }).then(data => {
+            updateUpc(data.upc);
+            updateName(data.name);
+            updateAisle(data.aisle);
+            updateRow(data.row);
+            updateSection(data.section);
+            updateShelf(data.shelf);
+            updateDepartment(data.department);
+        });
+    }
+
     function submit() {
-        const product = {upc: upc, name: name, aisle: aisle, row: row,
+        const product = {id: id, upc: upc, name: name, aisle: aisle, row: row,
             section: section, shelf: shelf, department: department, currentStock: 0};
         const json = JSON.stringify(product);
-        fetch(baseUrl+'product', {method: 'POST', body: json,
+        fetch(baseUrl+'product/'+id, {method: 'PUT', body: json,
             headers:{'Content-Type': 'application/json'}}).then((response) => {
             return response.json();
         }).then(data => {
             newData('product', [data]);
         });
         closeModal();
+        updateId(1);
         updateUpc('');
         updateName('');
         updateAisle(1);
@@ -64,13 +84,23 @@ function PostProductModal() {
         updateShelf(1);
         updateDepartment('');
     }
+
     return (
         <form>
             <div>
+                <div>
+                    <label>Enter the id to update:</label>
+                    <input type='number' value={id} onChange={idChanged} />
+                </div>
+                <div onClick={getProduct}>
+                    <OKButton text='Find' />
+                </div>
+            </div>
+            <div>
                 <label>UPC:</label>
-                <input type='text' value={upc} onChange={upcChanged}/>
+                <input type='text' value={upc} onChange={upcChanged} />
                 <label>Product name:</label>
-                <input type='text' value={name} onChange={nameChanged}/>
+                <input type='text' value={name} onChange={nameChanged} />
                 <label>Aisle:</label>
                 <input type='number' value={aisle} onChange={aisleChanged}/>
                 <label>Row:</label>
@@ -86,6 +116,7 @@ function PostProductModal() {
             <div onClick={submit}><OKButton text='OK' /></div>
         </form>
     )
+
 }
 
-export default PostProductModal;
+export default PutProductModal;

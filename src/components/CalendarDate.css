@@ -1,5 +1,6 @@
 .calendar_date {
     display: flex;
+
     flex-direction: column;
 
 }

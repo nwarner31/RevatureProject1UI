@@ -1,11 +1,38 @@
 .shipment {
     display: flex;
-    background-color: chocolate;
-    border: 2px solid brown;
+    background-color: #ff5722;
+    border: 2px solid #c41c00;
+}
+
+.shipment_id {
+    height: 3rem;
+    background-color: white;
+    border: 2px solid #9f0000;
+    border-radius: 10px;
+    flex-grow: 1;
+    width: 2rem;
+    font-size: 1.5rem;
+    align-self: center;
 }
 
 .ship_date {
-    background-color: burlywood;
-    border: 2px solid sienna;
+    background-color: antiquewhite;
+    border: 2px solid #9f0000;
     border-radius: 10px;
+    flex-basis: 70px;
+    flex-grow: 0;
+    margin-left: 20px;
+}
+
+.ship_time {
+    flex-grow: 8;
+}
+
+.bay_number {
+    flex-grow: 4;
+}
+
+.bold_text {
+    font-size: 2.5rem;
+    font-weight: bolder;
 }

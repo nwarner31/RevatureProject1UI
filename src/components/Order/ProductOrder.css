@@ -1,0 +1,23 @@
+.product_order {
+    background: #85bb5c;
+    border: 1px solid #558b2f;
+    display: flex;
+}
+
+.po_id, .po_quantity {
+    height: 3rem;
+    background-color: antiquewhite;
+    border: 2px solid #4b830d;
+    border-radius: 10px;
+    flex-grow: 0;
+    flex-basis: 40px;
+    font-size: 1.5rem;
+    align-self: center;
+}
+
+.po_info {
+    flex-grow: 1;
+    text-align: left;
+    margin-left: 15px;
+    font-weight: bold;
+}

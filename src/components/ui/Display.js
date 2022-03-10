@@ -2,6 +2,7 @@ import {useContext} from 'react';
 import Product from '../Product/Product';
 import Shipment from '../Shipment/Shipment';
 import Customer from '../Customer/Customer';
+import Order from '../Order/Order';
 import DataContext from '../../store/data_context';
 
 function Display () {
@@ -41,6 +42,16 @@ function Display () {
                 {data.items.map((customer) => (
                     <Customer key={customer.id} id={customer.id} username={customer.username}
                     name={customer.name} />
+                ))}
+            </div>
+        )
+    }
+
+    if(data.type === 'order') {
+        return (
+            <div>
+                {data.items.map((order) => (
+                    <Order key={order.id} id={order.id} customer={order.customer} shipment={order.shipment} products={order.products} orderDate={order.orderDate} />
                 ))}
             </div>
         )

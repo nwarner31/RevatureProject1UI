@@ -1,0 +1,18 @@
+.ob_main_button {
+    background-color: #1b5e20;
+    border: 2px solid #003300;
+    color: white;
+}
+
+.ob_sub_button {
+    background-color: #4c8c4a;
+    border: 2px solid #1b5e20;
+}
+
+.hidden {
+    display: none;
+}
+
+.show {
+    display: block;
+}

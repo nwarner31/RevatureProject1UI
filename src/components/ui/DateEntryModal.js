@@ -14,7 +14,6 @@ function DateEntryModal(props) {
     function submit() {
         const date = year+'-'+month+'-'+day;
         fetch(props.url+date).then((response) => {
-            console.log(response);
             return response.json();
         }).then(data => {
             let dataArray = [];

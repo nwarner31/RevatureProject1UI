@@ -38,7 +38,7 @@ function App() {
     return (
         <div className="App">
             <ModalContext.Provider value={{isShown: showModal, closeModal: cancelModal, openModal: createModal, content: modalContent}}>
-                <DataContext.Provider value={{data: info, newData: newInfo}}>
+                <DataContext.Provider value={{data: info, newData: newInfo, baseUrl: 'http://localhost:9000/'}}>
                     <Page />
                     <Modal confirm={confirmModal}  className={showModal} content={''}/>
                 </DataContext.Provider>

@@ -5,9 +5,9 @@ function Customer (props) {
 
     return (
         <Card className='customer'>
-            <div>{props.id}</div>
-            <div>{props.username}</div>
-            <div>{props.name}</div>
+            <div className='customer_id'>{props.id}</div>
+            <div className='customer_username'>{props.username}</div>
+            <div className='customer_name'>{props.name}</div>
         </Card>
     )
 }

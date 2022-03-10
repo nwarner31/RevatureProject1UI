@@ -5,12 +5,15 @@ import DataContext from '../../store/data_context';
 import ModalContext from '../../store/modal_context';
 import SingleEntryModal from '../ui/SingleEntryModal';
 import DateEntryModal from '../ui/DateEntryModal';
+import PostShipmentModal from './Modals/PostShipmentModal';
+import PutShipmentModal from './Modals/PutShipmentModal';
+import DeleteShipmentModal from './Modals/DeleteShipmentModal';
 
 import {useContext, useState} from "react";
 
 function ShipmentButtons() {
     const [isShown, setShown] = useState('hidden');
-    const {newData} = useContext(DataContext);
+    const {newData, baseUrl} = useContext(DataContext);
     const {openModal} = useContext(ModalContext);
     
     function menuClicked() {
@@ -21,7 +24,7 @@ function ShipmentButtons() {
     }
 
     function getAllClicked() {
-        fetch("http://localhost:9000/shipment").then((response) => {
+        fetch(baseUrl+'shipment').then((response) => {
             return response.json();
         }).then(data => {
             newData('shipment', data);
@@ -29,11 +32,23 @@ function ShipmentButtons() {
     };
 
     function getById() {
-        openModal(<SingleEntryModal dataType='shipment' url='http://localhost:9000/shipment/id/' text='Enter id' />)
+        openModal(<SingleEntryModal dataType='shipment' url={baseUrl+'shipment/id/'} text='Enter id' />)
     }
 
     function getByDate() {
-        openModal(<DateEntryModal dataType='shipment' text='Enter shipment date' url='http://localhost:9000/shipment/date/'/>);
+        openModal(<DateEntryModal dataType='shipment' text='Enter shipment date' url={baseUrl+'shipment/date/'} />);
+    }
+
+    function addShipment() {
+        openModal(<PostShipmentModal />)
+    }
+
+    function updateShipment() {
+        openModal(<PutShipmentModal />);
+    }
+
+    function deleteShipment() {
+        openModal(<DeleteShipmentModal />);
     }
     
     return (
@@ -42,7 +57,10 @@ function ShipmentButtons() {
             <MenuButton title='Get All' className={isShown+ ' sb_sub_button'} click={getAllClicked} />
             <MenuButton title='Get By Id' className={isShown+ ' sb_sub_button'} click={getById} />
             <MenuButton title='Get By Date' className={isShown+ ' sb_sub_button'} click={getByDate} />
-        </div>
+            <MenuButton title='Add Shipment' className={isShown+ ' sb_sub_button'} click={addShipment} />
+            <MenuButton title='Update Shipment' className={isShown+ ' sb_sub_button'} click={updateShipment} />
+            <MenuButton title='Delete Shipment' className={isShown+ ' sb_sub_button'} click={deleteShipment} />
+         </div>
     )
 }
 

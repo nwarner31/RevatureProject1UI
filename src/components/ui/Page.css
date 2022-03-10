@@ -1,23 +1,32 @@
 .page{
+    height: 85vh;
     display: flex;
-    flex-direction: row;
-    align-items: flex-start;
     text-align: center;
-    width: 65%;
-    margin: auto;
+    max-width: 1200px;
+    margin: 40px auto;
     background-color: lightslategray;
     border: 4px solid gray;
 }
 
+.menu, .display {
+    display: inline-block;
+    height:100%;
+    box-sizing: border-box;
+    background-color: white;
+    border: 3px solid antiquewhite;
+}
 
 
 .menu {
+
+    padding: 40px;
+    margin-right: 40px;
+    margin-left: 20px;
     width: 30%;
 }
 
 .display {
-    width: 60%;
-    align-self: flex-end;
-    background-color: white;
-    border: 3px solid antiquewhite;
+    overflow: scroll;
+    margin-right: 20px;
+    width: 65%;
 }

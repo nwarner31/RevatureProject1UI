@@ -6,14 +6,16 @@ function Shipment(props) {
     
     return(
         <Card className='shipment'>
-            <div>{props.id}</div>
+            <div className='shipment_id'>{props.id}</div>
 
             <CalendarDate date={props.shipDate} className='ship_date' />
-            <div>
-                {props.shipTime}
+            <div className='ship_time'>
+                Ship Time:
+                <div className='bold_text'>{props.shipTime}</div>
             </div>
-            <div>
-                {props.bayNumber}
+            <div className='bay_number'>
+                Bay Number:
+                <div class='bold_text'>{props.bayNumber}</div>
             </div>
         </Card> 
     )

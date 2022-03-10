@@ -1,4 +1,29 @@
 .customer {
     background-color: #ffd54f;
     border: 2px solid #c8a415;
+    display: flex;
+}
+
+.customer_id {
+    background-color: antiquewhite;
+    border: 2px solid #c79a00;
+    border-radius: 10px;
+    font-size: 1.5rem;
+    align-self: center;
+    flex-basis: 40px;
+    flex-grow: 0;
+}
+
+.customer_username {
+    font-size: 2rem;
+    flex-grow: 1;
+    text-align: left;
+    margin-left: 10px;
+}
+
+.customer_name {
+    font-size: 1.5rem;
+    flex-grow: 1;
+    text-align: right;
+    align-self: center;
 }

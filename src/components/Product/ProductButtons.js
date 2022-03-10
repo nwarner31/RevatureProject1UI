@@ -7,11 +7,13 @@ import DataContext from '../../store/data_context';
 
 import SingleEntryModal from '../ui/SingleEntryModal';
 import PostProductModal from './Modals/PostProductModal';
+import PutProductModal from './Modals/PutProductModal';
+import DeleteProductModal from './Modals/DeleteProductModal';
 
 function ProductButtons() {
     const [isShown, setShown] = useState('hidden');
     const { openModal } = useContext(ModalContext);
-    const {newData} = useContext(DataContext);
+    const {newData, baseUrl} = useContext(DataContext);
 
     function menuClicked() {
         const show = isShown === 'hidden' ? 'shown' : 'hidden';
@@ -19,7 +21,7 @@ function ProductButtons() {
     }
 
     function getAllClicked() {
-        fetch("http://localhost:9000/product").then((response) => {
+        fetch(baseUrl+'product').then((response) => {
             return response.json();
         }).then(data => {
             newData('product', data);
@@ -27,23 +29,31 @@ function ProductButtons() {
     };
 
     function getById() {
-        openModal(<SingleEntryModal dataType='product' url='http://localhost:9000/product/id/' text='Enter Id' />);
+        openModal(<SingleEntryModal dataType='product' url={baseUrl+'product/id/'} text='Enter Id' />);
     }
 
     function getByUpc() {
-        openModal(<SingleEntryModal dataType='product' url='http://localhost:9000/product/upc/' text='Enter UPC' />);
+        openModal(<SingleEntryModal dataType='product' url={baseUrl+'product/upc/'} text='Enter UPC' />);
     }
     
     function getByName() {
-        openModal(<SingleEntryModal dataType='product' url='http://localhost:9000/product/name/' text='Enter product name' />);
+        openModal(<SingleEntryModal dataType='product' url={baseUrl+'product/name/'} text='Enter product name' />);
     }
 
     function getByDepartment() {
-        openModal(<SingleEntryModal dataType='product' url='http://localhost:9000/product/dept/' text='Enter department name' />);
+        openModal(<SingleEntryModal dataType='product' url={baseUrl+'product/dept/'} text='Enter department name' />);
     }
 
-    function addDepartment() {
+    function addProduct() {
         openModal(<PostProductModal />);
+    }
+
+    function updateProduct() {
+        openModal(<PutProductModal />);
+    }
+
+    function deleteProduct() {
+        openModal(<DeleteProductModal />);
     }
 
     return(
@@ -54,7 +64,9 @@ function ProductButtons() {
             <MenuButton title='Get By UPC' className={isShown + ' pb_sub_button'} click={getByUpc} />
             <MenuButton title='Get By Name' className={isShown + ' pb_sub_button'} click={getByName} />
             <MenuButton title='Get By Department' className={isShown + ' pb_sub_button'} click={getByDepartment} />
-            <MenuButton title='Add Product' className={isShown + ' pb_sub_button'} click={addDepartment} />
+            <MenuButton title='Add Product' className={isShown + ' pb_sub_button'} click={addProduct} />
+            <MenuButton title='Update Product' className={isShown + ' pb_sub_button'} click={updateProduct} />
+            <MenuButton title='Delete Product' className={isShown + ' pb_sub_button'} click={deleteProduct} />
         </div>
     )
 
