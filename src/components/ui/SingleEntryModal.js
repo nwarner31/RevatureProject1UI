@@ -4,6 +4,7 @@ import CancelButton from './CancelButton'
 import OKButton from './OKButton';
 import ModalContext from '../../store/modal_context';
 import DataContext from '../../store/data_context';
+import './SingleEntryModal.css';
 
 function SingleEntryModal(props) {
     const {closeModal} = useContext(ModalContext);
@@ -33,10 +34,10 @@ function SingleEntryModal(props) {
         <form>
             <label>{props.text}:</label>
             <input type='text' value={data_value} onChange={dataChange} />
-            <div onClick={closeModal}>
+            <div onClick={closeModal} className='sem_button'>
                 <CancelButton text='Cancel' />
             </div>
-            <div onClick={submit}>
+            <div onClick={submit} className='sem_button'>
                 <OKButton text='OK' />
             </div>
         </form>

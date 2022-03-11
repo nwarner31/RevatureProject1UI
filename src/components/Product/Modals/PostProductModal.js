@@ -2,6 +2,7 @@ import OKButton from '../../ui/OKButton';
 import CancelButton from '../../ui/CancelButton';
 import ModalContext from '../../../store/modal_context';
 import DataContext from '../../../store/data_context';
+import './PostProductModal.css';
 
 import {useState, useContext} from 'react';
 
@@ -67,23 +68,37 @@ function PostProductModal() {
     return (
         <form>
             <div>
-                <label>UPC:</label>
-                <input type='text' value={upc} onChange={upcChanged}/>
-                <label>Product name:</label>
-                <input type='text' value={name} onChange={nameChanged}/>
-                <label>Aisle:</label>
-                <input type='number' value={aisle} onChange={aisleChanged}/>
-                <label>Row:</label>
-                <input type='number' value={row} onChange={rowChanged}/>
-                <label>Section:</label>
-                <input type='number' value={section} onChange={sectionChanged}/>
-                <label>Shelf:</label>
-                <input type='number' value={shelf} onChange={shelfChanged}/>
-                <label>Department:</label>
-                <input type='text' value={department} onChange={departmentChanged}/>
+                <div className='field'>
+                    <label >UPC:</label>
+                    <input type='text' value={upc} onChange={upcChanged}/>
+                </div>
+                <div className='field'>
+                    <label >Product name:</label>
+                    <input type='text' value={name} onChange={nameChanged}/>
+                </div>
+                <div className='field'>
+                    <label >Aisle:</label>
+                    <input type='number' value={aisle} onChange={aisleChanged}/>
+                </div>
+               <div className='field'>
+                   <label >Row:</label>
+                   <input type='number' value={row} onChange={rowChanged}/>
+               </div>
+               <div className='field'>
+                   <label >Section:</label>
+                   <input type='number' value={section} onChange={sectionChanged}/>
+               </div>
+                <div className='field'>
+                    <label >Shelf:</label>
+                    <input type='number' value={shelf} onChange={shelfChanged}/>
+                </div>
+                <div className='field'>
+                    <label>Department:</label>
+                    <input type='text' value={department} onChange={departmentChanged}/>
+                </div>
             </div>
-            <div onClick={closeModal}><CancelButton text='Cancel' /></div>
-            <div onClick={submit}><OKButton text='OK' /></div>
+            <div onClick={closeModal} className='post_p_button'><CancelButton text='Cancel' /></div>
+            <div onClick={submit} className='post_p_button'><OKButton text='OK' /></div>
         </form>
     )
 }

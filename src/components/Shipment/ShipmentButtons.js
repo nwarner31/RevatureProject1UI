@@ -11,16 +11,18 @@ import DeleteShipmentModal from './Modals/DeleteShipmentModal';
 
 import {useContext, useState} from "react";
 
-function ShipmentButtons() {
-    const [isShown, setShown] = useState('hidden');
+function ShipmentButtons(props) {
+    //const [isShown, setShown] = useState('hidden');
     const {newData, baseUrl} = useContext(DataContext);
     const {openModal} = useContext(ModalContext);
-    
-    function menuClicked() {
 
-        setShown((prevState) => {
-            return prevState === 'hidden' ? 'shown' : 'hidden';
-        });
+    const isShown = props.shown === 'shipment' ? 'shown' : 'hidden';
+    function menuClicked() {
+        const show = props.shown === 'shipment' ? 'none' : 'shipment';
+        props.updateShown(show);
+        // setShown((prevState) => {
+        //     return prevState === 'hidden' ? 'shown' : 'hidden';
+        // });
     }
 
     function getAllClicked() {

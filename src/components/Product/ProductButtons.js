@@ -10,14 +10,17 @@ import PostProductModal from './Modals/PostProductModal';
 import PutProductModal from './Modals/PutProductModal';
 import DeleteProductModal from './Modals/DeleteProductModal';
 
-function ProductButtons() {
-    const [isShown, setShown] = useState('hidden');
+function ProductButtons(props) {
+    //const [isShown, setShown] = useState('hidden');
     const { openModal } = useContext(ModalContext);
     const {newData, baseUrl} = useContext(DataContext);
 
+    const isShown = props.shown === 'product' ? 'shown' : 'hidden';
     function menuClicked() {
-        const show = isShown === 'hidden' ? 'shown' : 'hidden';
-        setShown(show);
+        //const show = isShown === 'hidden' ? 'shown' : 'hidden';
+        //setShown(show);
+        const show = props.shown === 'product' ? 'none' : 'product';
+        props.updateShown(show);
     }
 
     function getAllClicked() {

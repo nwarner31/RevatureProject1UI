@@ -9,13 +9,16 @@ import PutCustomerModal from './Modals/PutCustomerModal';
 import DeleteCutomerModal from './Modals/DeleteCustomerModal';
 
 function CustomerButtons(props) {
-    const [isShown, setShown] = useState('hidden');
+    //const [isShown, setShown] = useState('hidden');
     const {newData, baseUrl} = useContext(DataContext);
     const {openModal} = useContext(ModalContext);
 
+    const isShown = props.shown === 'customer' ? 'shown' : 'hidden';
     function menuClicked() {
-        const show = isShown === 'hidden' ? 'shown' : 'hidden';
-        setShown(show);
+        // const show = isShown === 'hidden' ? 'shown' : 'hidden';
+        // setShown(show);
+        const show = props.shown === 'customer' ? 'none' : 'customer';
+        props.updateShown(show);
     }
 
     function getAllClicked() {

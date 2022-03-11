@@ -12,16 +12,19 @@ import './OrderButtons.css';
 import {useState, useContext} from "react";
 
 
-function OrderButtons() {
-    const [isShown, setShown] = useState('hidden');
+function OrderButtons(props) {
+    //const [isShown, setShown] = useState('hidden');
     const {newData, baseUrl} = useContext(DataContext);
     const {openModal} = useContext(ModalContext);
 
+    const isShown = props.shown === 'order' ? 'shown' : 'hidden';
     function menuClicked() {
 
-        setShown((prevState) => {
-            return prevState === 'hidden' ? 'shown' : 'hidden';
-        });
+        const show = props.shown === 'order' ? 'none' : 'order';
+        props.updateShown(show);
+        // setShown((prevState) => {
+        //     return prevState === 'hidden' ? 'shown' : 'hidden';
+        // });
     }
 
     function getAll() {

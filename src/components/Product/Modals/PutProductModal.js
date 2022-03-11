@@ -2,6 +2,7 @@ import OKButton from '../../ui/OKButton';
 import CancelButton from '../../ui/CancelButton';
 import ModalContext from '../../../store/modal_context';
 import DataContext from '../../../store/data_context';
+import './PutProductModal.css';
 
 import {useState, useContext} from 'react';
 
@@ -88,32 +89,46 @@ function PutProductModal() {
     return (
         <form>
             <div>
-                <div>
+                <div className='put_p_field'>
                     <label>Enter the id to update:</label>
                     <input type='number' value={id} onChange={idChanged} />
                 </div>
-                <div onClick={getProduct}>
+                <div onClick={getProduct} className='put_p_button'>
                     <OKButton text='Find' />
                 </div>
             </div>
             <div>
-                <label>UPC:</label>
-                <input type='text' value={upc} onChange={upcChanged} />
-                <label>Product name:</label>
-                <input type='text' value={name} onChange={nameChanged} />
-                <label>Aisle:</label>
-                <input type='number' value={aisle} onChange={aisleChanged}/>
+                <div className='put_p_field'>
+                    <label>UPC:</label>
+                    <input type='text' value={upc} onChange={upcChanged} />
+                </div>
+                <div className='put_p_field'>
+                    <label>Product name:</label>
+                    <input type='text' value={name} onChange={nameChanged} />
+                </div>
+                <div className='put_p_field'>
+                    <label>Aisle:</label>
+                    <input type='number' value={aisle} onChange={aisleChanged}/>
+                </div>
+                <div className='put_p_field'>
                 <label>Row:</label>
                 <input type='number' value={row} onChange={rowChanged}/>
+                </div>
+                <div className='put_p_field'>
                 <label>Section:</label>
                 <input type='number' value={section} onChange={sectionChanged}/>
+                </div>
+                <div className='put_p_field'>
                 <label>Shelf:</label>
                 <input type='number' value={shelf} onChange={shelfChanged}/>
+                </div>
+                <div className='put_p_field'>
                 <label>Department:</label>
                 <input type='text' value={department} onChange={departmentChanged}/>
+                </div>
             </div>
-            <div onClick={closeModal}><CancelButton text='Cancel' /></div>
-            <div onClick={submit}><OKButton text='OK' /></div>
+            <div onClick={closeModal} className='put_p_button'><CancelButton text='Cancel' /></div>
+            <div onClick={submit} className='put_p_button'><OKButton text='OK' /></div>
         </form>
     )
 

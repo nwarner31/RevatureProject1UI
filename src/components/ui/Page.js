@@ -9,14 +9,18 @@ import Display from './Display';
 
 
 function Page(){
-    
+   const [shownButtons, updateShownButtons] = useState('none');
+
+   function changeShown(toShow) {
+       updateShownButtons(toShow);
+   }
     return (
         <Card className='page'>
             <Card className='menu'>
-                <ProductButtons  />
-                <ShipmentButtons />
-                <CustomerButtons />
-                <OrderButtons />
+                <ProductButtons shown={shownButtons} updateShown={changeShown} />
+                <ShipmentButtons shown={shownButtons} updateShown={changeShown} />
+                <CustomerButtons shown={shownButtons} updateShown={changeShown} />
+                <OrderButtons shown={shownButtons} updateShown={changeShown} />
             </Card>
             <Card className='display' id='display_page'>
                 <Display  />
